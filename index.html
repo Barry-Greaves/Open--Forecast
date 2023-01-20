@@ -13,15 +13,21 @@
             Input element for the city search, with a list of suggestions and a placeholder text
         -->
         <input type="search" list="suggestions" class="weather__search" placeholder="Your City">
+        <!--
+            Datalist element to hold the suggestions
+        -->
         <datalist id="suggestions"></datalist>
-        <div>
-            <div>
-                <h2>City</h2>
-                <p>Day</p>
-                <div>
-                    <p></p>
-                    <p></p>
-                    <p></p>
+        <div class="weather__today">
+        <!--
+            Div for the current weather with details, an image, and temperature
+        -->
+            <div class="weather__details">
+                <h2 class="weather__city">City</h2>
+                <p class="weather__day">Day</p>
+                <div class="weather__current">
+                    <p class="weather__indicator weather__indicator--humidity"><span class="value">50</span>%</p>
+                    <p class="weather__indicator weather__indicator--wind"><span class="value">West, 5</span>m/s</p>
+                    <p class="weather__indicator weather__indicator--pressure"><span class="value">1050</span>hPa</p>
                 </div>
             </div>
             <div></div>
