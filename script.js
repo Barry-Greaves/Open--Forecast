@@ -117,3 +117,18 @@ let getForecastByCityID = async (id) => {
     });
     return daily; 
 };
+
+/**
+This function asynchronously retrieves the current weather and forecast for a given city using the city's name.
+The function first calls the getWeatherByCityName function to get the current weather for the city,
+then uses the returned weather object's id property to call the getForecastByCityID function to get the forecast for the city.
+Both the current weather and forecast are then passed to their respective update functions, updateCurrentWeather and updateForecast,
+to update the current weather and forecast data for the city.
+*/
+let weatherForCity = async (city) => {
+    let weather = await getWeatherByCityName(city);
+    let cityID = weather.id;
+    updateCurrentWeather(weather);
+    let forecast = await getForecastByCityID(cityID);
+    updateForecast(forecast);
+};
