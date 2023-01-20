@@ -62,3 +62,21 @@ let weatherImages = [
         ids: [200, 201, 202, 210, 211, 212, 221, 230, 231, 232]
     }
   ];
+
+/**
+ Retrieves the current weather data for a given city from the OpenWeatherMap API
+ This function takes a city name as an argument and constructs an API endpoint using the weatherBaseEndpoint 
+ and the city name. Then it fetches the weather data from the API and returns a JSON object containing the weather data.
+ If the API returns a status code other than "ok" it will show an alert with an error message to the user,
+ and it will return an object with a cod property set to "404"
+ */
+ let getWeatherByCityName = async (city) => {
+    let endpoint = weatherBaseEndpoint + '&q=' + city;
+    let response = await fetch(endpoint);
+    if(!response.ok) {
+        alert("I'm sorry that is not a valid city name. Please check your spelling and submit again");
+        return {cod: '404'};
+    }
+    let weather = await response.json();
+    return weather;
+};
