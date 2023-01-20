@@ -80,3 +80,40 @@ let weatherImages = [
     let weather = await response.json();
     return weather;
 };
+
+/**
+ Retrieves the forecast data for a given city from the OpenWeatherMap API
+ This function takes a city name as an argument and constructs an API endpoint using the forecastBaseEndpoint 
+ and the city name. Then it fetches the forecast data from the API, filters the data to only include forecasts
+ for 12:00 PM, and returns an array of filtered forecast objects.
+ */
+ let getForecastByCityName = async (city) => {
+    let endpoint = forecastBaseEndpoint + '&q=' + city;
+    let result = await fetch(endpoint);
+    let forecast = await result.json();
+    let forecastList = forecast.list;
+    let daily = [];
+    forecastList.forEach(day => {
+        let date = new Date(day.dt_txt.replace(' ', 'T'));
+        let hours = date.getHours();
+        if(hours === 12) {
+            daily.push(day);
+        }
+    });
+    return daily;
+};
+let getForecastByCityID = async (id) => {
+    let endpoint = forecastBaseEndpoint + '&id=' + id;
+    let result = await fetch(endpoint);
+    let forecast = await result.json();
+    let forecastList = forecast.list;
+    let daily = [];
+    forecastList.forEach(day => {
+        let date = new Date(day.dt_txt.replace(' ', 'T'));
+        let hours = date.getHours();
+        if(hours === 12) {
+            daily.push(day);
+        }
+    });
+    return daily; 
+};
