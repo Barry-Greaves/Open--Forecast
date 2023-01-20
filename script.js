@@ -132,3 +132,25 @@ let weatherForCity = async (city) => {
     let forecast = await getForecastByCityID(cityID);
     updateForecast(forecast);
 };
+
+/**
+Event listener that listens for the "keydown" event on the search input element.
+When the event is triggered, the function checks if the key code of the pressed key is 13 (Enter).
+If the key code is 13, the function will execute the following:
+calls the getWeatherByCityName function with the value of the search input as the city name
+gets the city ID from the returned weather object
+calls the updateCurrentWeather function with the returned weather object
+calls the getForecastByCityID function with the city ID and gets the forecast
+calls the updateForecast function with the returned forecast
+calls the backgroundImage function
+*/
+searchInp.addEventListener('keydown', async (e) => {
+    if(e.keyCode === 13) {
+        let weather = await getWeatherByCityName(searchInp.value);
+        let cityID = weather.id;
+        updateCurrentWeather(weather);
+        let forecast = await getForecastByCityID(cityID);
+        updateForecast(forecast);
+        backgroundImage();
+    }
+});
