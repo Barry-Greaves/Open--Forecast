@@ -239,3 +239,12 @@ let updateForecast = (forecast) => {
         forecastBlock.insertAdjacentHTML('beforeend', forecatItem);
     });
 };
+
+/**
+Returns the current day of the week or the day of the week for a given date.
+Takes an optional parameter dt, which is a timestamp in milliseconds.
+If no parameter is passed, the function uses the current date and time.
+*/
+let dayOfWeek = (dt = new Date().getTime()) => {
+    return new Date(dt).toLocaleDateString('en-EN', {'weekday': 'long'});
+};
