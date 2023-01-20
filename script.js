@@ -208,3 +208,34 @@ let updateCurrentWeather = (data) => {
         }
     });
 };
+
+/**
+Updates the current weather information on the webpage with the data received from the API.
+Takes in a data object containing the weather data.
+Updates the following elements on the webpage with the corresponding values from the data object:
+city name and country code
+day of the week
+humidity
+pressure
+wind direction and speed
+temperature
+weather image based on the weather condition id
+*/
+let updateForecast = (forecast) => {
+    forecastBlock.innerHTML = '';
+    forecast.forEach(day => {
+        let iconUrl = 'https://openweathermap.org/img/wn/' + day.weather[0].icon + '@2x.png';
+        let dayName = dayOfWeek(day.dt * 1000);
+        let temperature = day.main.temp > 0 ? 
+                    '+' + Math.round(day.main.temp) : 
+                    Math.round(day.main.temp);
+        let forecatItem = `
+            <article class="weather__forecast__item">
+                <img src="${iconUrl}" alt="${day.weather[0].description}" class="weather__forecast__icon">
+                <h3 class="weather__forecast__day">${dayName}</h3>
+                <p class="weather__forecast__temperature"><span class="value">${temperature}</span> &deg;C</p>
+            </article>
+        `;
+        forecastBlock.insertAdjacentHTML('beforeend', forecatItem);
+    });
+};
