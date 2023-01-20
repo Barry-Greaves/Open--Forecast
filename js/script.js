@@ -14,6 +14,16 @@ let temperature = document.querySelector('.weather__temperature>.value');
 let forecastBlock = document.querySelector('.weather__forecast');
 let datalist = document.getElementById('suggestions');
 
+
+/**
+ * This function retrieves the value of the input element with the ID "citybg" and uses it to set the background
+ * image of the page using the Unsplash API. The background image is set to the body element of the page.
+ */
+function backgroundImage () {
+var bg = document.getElementById("citybg").value;
+document.body.style.backgroundImage = "url('https://source.unsplash.com/1920x1080/?" + bg + "')";
+}
+
 /**
  * weatherImages - an array of objects that map weather conditions to corresponding images
  * 
@@ -25,43 +35,43 @@ let datalist = document.getElementById('suggestions');
  * weather condition ID received from the OpenWeatherMap API.
  */
 let weatherImages = [
-    {
-        url: 'images/sunny.png',
-        ids: [800]
-    },
-    {
-        url: 'images/scattered-clouds.png',
-        ids: [803, 804]
-    },
-    {
-        url: 'images/few-clouds.png',
-        ids: [801]
-    },
-    {
-        url: 'images/mist.png',
-        ids: [701, 711, 721, 731, 741, 751, 761, 762, 771, 781]
-    },
-    {
-        url: 'images/rain.png',
-        ids: [500, 501, 502, 503, 504]
-    },
-    {
-        url: 'images/scattered-clouds.png',
-        ids: [802]
-    },
-    {
-        url: 'images/shower-rain.png',
-        ids: [520, 521, 522, 531, 300, 301, 302, 310, 311, 312, 313, 314, 321]
-    },
-    {
-        url: 'images/snow.png',
-        ids: [511, 600, 601, 602, 611, 612, 613, 615, 616, 620, 621, 622]
-    },
-    {
-        url: 'images/thnderstorm.png',
-        ids: [200, 201, 202, 210, 211, 212, 221, 230, 231, 232]
-    }
-  ];
+  {
+      url: 'images/sunny.png',
+      ids: [800]
+  },
+  {
+      url: 'images/scattered-clouds.png',
+      ids: [803, 804]
+  },
+  {
+      url: 'images/few-clouds.png',
+      ids: [801]
+  },
+  {
+      url: 'images/mist.png',
+      ids: [701, 711, 721, 731, 741, 751, 761, 762, 771, 781]
+  },
+  {
+      url: 'images/rain.png',
+      ids: [500, 501, 502, 503, 504]
+  },
+  {
+      url: 'images/scattered-clouds.png',
+      ids: [802]
+  },
+  {
+      url: 'images/shower-rain.png',
+      ids: [520, 521, 522, 531, 300, 301, 302, 310, 311, 312, 313, 314, 321]
+  },
+  {
+      url: 'images/snow.png',
+      ids: [511, 600, 601, 602, 611, 612, 613, 615, 616, 620, 621, 622]
+  },
+  {
+      url: 'images/thnderstorm.png',
+      ids: [200, 201, 202, 210, 211, 212, 221, 230, 231, 232]
+  }
+];
 
 /**
  Retrieves the current weather data for a given city from the OpenWeatherMap API
@@ -70,7 +80,7 @@ let weatherImages = [
  If the API returns a status code other than "ok" it will show an alert with an error message to the user,
  and it will return an object with a cod property set to "404"
  */
- let getWeatherByCityName = async (city) => {
+let getWeatherByCityName = async (city) => {
     let endpoint = weatherBaseEndpoint + '&q=' + city;
     let response = await fetch(endpoint);
     if(!response.ok) {
@@ -81,13 +91,14 @@ let weatherImages = [
     return weather;
 };
 
+
 /**
  Retrieves the forecast data for a given city from the OpenWeatherMap API
  This function takes a city name as an argument and constructs an API endpoint using the forecastBaseEndpoint 
  and the city name. Then it fetches the forecast data from the API, filters the data to only include forecasts
  for 12:00 PM, and returns an array of filtered forecast objects.
  */
- let getForecastByCityName = async (city) => {
+let getForecastByCityName = async (city) => {
     let endpoint = forecastBaseEndpoint + '&q=' + city;
     let result = await fetch(endpoint);
     let forecast = await result.json();
@@ -248,3 +259,56 @@ If no parameter is passed, the function uses the current date and time.
 let dayOfWeek = (dt = new Date().getTime()) => {
     return new Date(dt).toLocaleDateString('en-EN', {'weekday': 'long'});
 };
+
+/**
+Generates a weather report for a given city.
+Takes in a city name as an argument, it calls the getForecastByCityName function to get the forecast for the city.
+Creates a report variable and sets it to "Weather Report for {city}:<br><br>"
+Loops through the forecast data and for each day, it creates a variable for each of the following:
+the day's name
+the weather description
+the temperature
+the humidity
+the wind speed
+the pressure
+the icon image associated with the weather condition
+The function then adds the information to the report variable in a formatted string
+*/
+async function generateWeatherReport(city) {
+    let forecast = await getForecastByCityName(city);
+    let report = "Weather Report for " + city + ":<br><br>";
+    let reportText = "";
+    document.querySelector('#report').innerText = reportText;
+
+    forecast.forEach(day => {
+        let date = new Date(day.dt_txt.replace(' ', 'T'));
+        let dayName = date.toLocaleString('default', {weekday: 'long'});
+        let weather = day.weather[0];
+        let temp = day.main.temp;
+        let humidity = day.main.humidity;
+        let wind = day.wind.speed;
+        let pressure = day.main.pressure;
+        
+        report += "On " + dayName + ", the weather will be " + weather.description + " with a high of " + temp + " degrees and a low of " + temp + " &deg;C. The humidity will be around " + humidity + "%, the wind will be blowing at " + wind + "m/s, and the pressure will be around " + pressure + "hPa.<br><br>";
+
+    });
+    let reportContainer = document.getElementById("report");
+    reportContainer.innerHTML = report;
+}
+
+let searchInput = document.querySelector('.weather__search');
+searchInput.addEventListener('change', function(){
+    let city = searchInput.value;
+    generateWeatherReport(city);
+});
+
+/**
+Initialization function that is called when the webpage loads.
+The function calls the weatherForCity function with the argument 'London' which gets the current weather and forecast for London.
+*/
+let init = async () => {
+    await weatherForCity('London');
+};
+
+init();
+backgroundImage ();
