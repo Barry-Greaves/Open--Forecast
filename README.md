@@ -3,6 +3,8 @@
 
 Open Forecast is a weather forecasting web application that provides users with current weather information as well as a five-day forecast for a given city. The application utilizes the OpenWeatherMap API to retrieve weather data and display it in a user-friendly interface.
 
+Link to [Live Website](https://barry-greaves.github.io/Open--Forecast/)
+
 ## Project Goals
 The goal of the Open Forecast project is to create a reliable and easy-to-use weather forecasting tool that provides users with the information they need to plan their day or week. The project aims to achieve this goal by providing accurate weather data, a simple and intuitive interface, and easy access to the data through a search function.
 
