@@ -1,4 +1,6 @@
 # Open Forecast
+![Open_Forecast_Layouts](https://user-images.githubusercontent.com/107034179/213618302-914f5529-f360-49a5-a80d-fd873484d6b3.png)
+
 Open Forecast is a weather forecasting web application that provides users with current weather information as well as a five-day forecast for a given city. The application utilizes the OpenWeatherMap API to retrieve weather data and display it in a user-friendly interface.
 
 ## Project Goals
@@ -14,18 +16,6 @@ The user's goal is to quickly and easily access accurate and up-to-date weather 
 The user experience is designed to be simple and intuitive. Users can search for their desired location by city name, and the application will display the current weather conditions and a five-day forecast. The interface is designed to be easy to navigate, with clearly labeled sections for the current weather and forecast. Users can also view a more detailed weather report by clicking on the "View Report" button.
 User Expectations
 
-## Project Goals
-The goal of Open Forecast is to provide users with accurate and up-to-date weather information for a given location. The project utilizes the OpenWeatherMap API to retrieve current weather data and a 5-day forecast for a given city. The data is then displayed on the website in an easy-to-read format that includes current weather conditions, temperature, humidity, wind speed, and pressure.
-
-## Site Owner Goals
-The site owner's goal is to provide a simple, user-friendly interface for accessing weather information. The site should be easy to navigate and understand, with clear and concise information presented in a visually appealing manner. The site owner also hopes to provide additional features, such as background images of the searched city, to enhance the user experience.
-
-## User Goals
-Users visiting Open Forecast can expect to find accurate and up-to-date weather information for a given location. They should be able to quickly and easily search for a city and view current weather conditions as well as a 5-day forecast. Users should also be able to access additional information such as humidity, wind speed, and pressure.
-
-## User Experience
-Users visiting Open Forecast can expect a simple and user-friendly experience. The site features an intuitive search bar where users can enter the name of a city to view the current weather conditions and a 5-day forecast. The data is presented in a clear and concise manner, with easy-to-read text and visually appealing icons. The site also features background images of the searched city to enhance the user experience.
-
 ## User Expectations
 Users visiting Open Forecast can expect to find accurate and up-to-date weather information for a given location. They can expect the site to be easy to navigate and understand, with clear and concise information presented in a visually appealing manner. Users can also expect to find additional features such as background images of the searched city.
 
@@ -35,11 +25,20 @@ Users visiting Open Forecast can expect to find accurate and up-to-date weather 
 * As a user, I want the site to be visually appealing so I can enjoy using it and find the information I need quickly and easily.
 Technology Used
 Open Forecast utilizes the OpenWeatherMap API to retrieve weather data, JavaScript to display the data on the website, and HTML/CSS to create the website layout and design.
-Features
-* Intuitive search bar for searching for a city
-* Current weather conditions and a 5-day forecast
-* Additional information such as humidity, wind speed, and pressure
-* Background images of the searched city
+
+## Features
+
+### Intuitive search bar for searching for a city
+![Screen Shot 2023-01-20 at 04 40 28](https://user-images.githubusercontent.com/107034179/213618684-4e21aaf8-4524-4a37-881f-484c7d1829ae.png)
+
+### Current weather conditions including humidity, wind speed, and pressure.
+![Screen Shot 2023-01-20 at 04 42 23](https://user-images.githubusercontent.com/107034179/213618911-5774d7aa-e0db-488c-af1b-042b0a540f0e.png)
+
+### 5 day forecast for chosen city
+![Screen Shot 2023-01-20 at 04 43 58](https://user-images.githubusercontent.com/107034179/213618990-03de45ad-63f3-42a1-9995-9ac289d4d069.png)
+
+### 5 day weather report with extra details including humidity, wind speed, and pressure.
+![Screen Shot 2023-01-20 at 04 46 03](https://user-images.githubusercontent.com/107034179/213619193-7f9d0267-6c4f-48a3-8445-9c3606596727.png)
 
 ## Technology used:
 * This project is built using JavaScript, HTML, and CSS.
