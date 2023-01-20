@@ -118,3 +118,18 @@ body {
     width: calc(20% - 20px);
     flex-grow: 1;
 }
+
+.weather__report__container {
+    width: 100%;
+    min-height: 250px;
+    overflow: hidden;
+    background-color: rgba(3, 3, 3, 0.8);
+    border-radius: 10px;
+    padding: 10px;
+  }
+
+  .weather-report{
+    padding: 10px;
+    overflow: auto;
+    white-space: normal;
+}
