@@ -154,3 +154,29 @@ searchInp.addEventListener('keydown', async (e) => {
         backgroundImage();
     }
 });
+
+/**
+Event listener that listens for the "input" event on the search input element.
+When the event is triggered, the function checks if the input value length is less than or equal to 2 characters.
+If it is, the function will exit and not execute the rest of the code.
+If the input value length is more than 2 characters, the function will
+construct an API endpoint using the geocodingBaseEndpoint global variable and the input value
+fetch the geocoding data from the API using the endpoint
+clear the suggestions datalist's innerHTML
+create an option element for each city in the result and append to the suggestions datalist
+set the value and label of the option element to the city's name, state (if exists), and country
+*/
+searchInp.addEventListener('input', async () => {
+    if(searchInp.value.length <= 2) {
+        return;
+    }
+    let endpoint = geocodingBaseEndpoint + searchInp.value;
+    let result = await (await fetch(endpoint)).json();
+    datalist.innerHTML = '';
+    result.forEach((city) => {
+        let option = document.createElement('option');
+        option.value = `${city.name}${city.state ? ', ' + city.state : ''}, ${city.country}`;
+        option.label = option.value;
+        datalist.appendChild(option);
+    });
+});
