@@ -129,8 +129,22 @@ In addition to testing the app's performance, various user scenarios were also s
 
 Overall, the testing process was thorough and comprehensive, and I am confident that users will have a positive experience using Open Forecast, and we will continue to monitor and improve the app to ensure that it remains reliable and user-friendly.
 
+## Bugs
+
+If the user selects their city from the suggestions list it does not always update the weather city accordingly and sometimes chooses a city from a different country which shares the same name. This issue does not always occur but needs to fixed in a future update. 
+
+## Deployment
+
+- I created the repository using the [Code Institute Gitpod Template](https://github.com/Code-Institute-Org/gitpod-full-template)
+- I selected "Use this template" and then created a new repository using the full template. 
+- Once in Github repository I then set up the development environment in Gitpod
+- I begun the website by creating an index.html page and css style sheet. 
+- I committed all updates through the development process, ensuring they were well defined and included a clear message describing the reason for each commit. 
+- The website is hosted on Github pages and the link can be found by navigating to the settings tab of the repoistory and then clicking on 'pages'.
+- Live link is available here: https://barry-greaves.github.io/Open--Forecast/
+
 ## How to fork and clone on Github:
-1. Go to the Open Forecast Github repository at https://github.com/Open-Forecast
+1. Go to the Open Forecast Github repository at https://github.com/Open--Forecast
 2. Click the "Fork" button at the top right of the page.
 3. On your forked repository, click the "Clone or download" button and copy the URL.
 4. In your local machine, open the terminal and navigate to the directory where you want to clone the project.
