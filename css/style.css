@@ -38,3 +38,39 @@ body {
     margin-bottom : 20px;
     border-radius: 10px;
 }
+
+.weather__search::placeholder {
+    color: white;
+}
+  
+.weather__today {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: rgba(3, 3, 3, 0.8);
+    border-radius: 10px;
+}
+
+.weather__indicator::before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    margin-right: 10px;
+}
+  
+.weather__indicator--humidity::before {
+    background-image: url(../images/humidity.png);
+}
+  
+.weather__indicator--wind::before {
+    background-image: url(../images/wind.png);
+}
+  
+.weather__indicator--pressure::before {
+    background-image: url(../images/pressure.png);
+}
