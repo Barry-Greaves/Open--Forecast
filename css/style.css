@@ -17,3 +17,24 @@ body {
     letter-spacing: .3rem;
     background-color: black;
   }
+
+.weather {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 20px 0;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: visible;
+}
+
+.weather__search {
+    width: 100%;
+    padding: 15px 10px;
+    border: none;
+    background-color: rgba(3, 3, 3, 0.8);
+    font-size: 20px;
+    color: inherit;
+    margin-bottom : 20px;
+    border-radius: 10px;
+}

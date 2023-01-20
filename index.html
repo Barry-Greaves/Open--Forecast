@@ -8,8 +8,11 @@
     <link rel="shortcut icon" href="#">
 </head>
 <body>
-    <div>
-        <input type="search">
+    <div class="weather">
+        <!--
+            Input element for the city search, with a list of suggestions and a placeholder text
+        -->
+        <input type="search" list="suggestions" class="weather__search" placeholder="Your City">
         <datalist id="suggestions"></datalist>
         <div>
             <div>
