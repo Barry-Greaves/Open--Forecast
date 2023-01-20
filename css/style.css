@@ -74,3 +74,20 @@ body {
 .weather__indicator--pressure::before {
     background-image: url(../images/pressure.png);
 }
+
+.weather__image {
+    width: 30vmin;
+    align-self: center;
+  }
+  
+.weather__city {
+    font-size: 36px;
+    font-weight: 600;
+    margin: 20px 0;
+}
+  
+.weather__day {
+    font-size: 30px;
+    margin: 10px 0;
+    font-weight: 400;
+}
